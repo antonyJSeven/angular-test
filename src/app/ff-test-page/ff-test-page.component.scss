@@ -1,0 +1,23 @@
+.form-wrapper {
+  display: block;
+  width: 300px;
+  margin: 0 auto;
+
+  form {
+    display: flex;
+    justify-content: center;
+    max-width: 300px;
+  }
+}
+
+.quotes-list-wr {
+  padding: 40px;
+
+  .quote {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid grey;
+    margin-bottom: 15px;
+  }
+}
