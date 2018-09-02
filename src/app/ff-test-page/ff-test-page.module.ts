@@ -1,18 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
-import { AboutRoutingModule } from './about-routing.module';
-import { AboutComponent } from './about.component';
+import { FfTestPageRoutingModule } from './ff-test-page-routing.module';
+import {FfTestPageComponent} from '@app/ff-test-page/ff-test-page.component';
+import {SharedModule} from '@app/shared';
 
 @NgModule({
   imports: [
     CommonModule,
     TranslateModule,
-    AboutRoutingModule
+    FfTestPageRoutingModule,
+    ReactiveFormsModule,
+    SharedModule
   ],
   declarations: [
-    AboutComponent
+    FfTestPageComponent
   ]
 })
-export class AboutModule { }
+export class FfTestPageModule { }

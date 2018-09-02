@@ -1,6 +1,6 @@
 <div class="form-wrapper">
   <form [formGroup]="searchForm" (submit)="onSubmit()">
-    <input type="text" placeholder="search quote" id="str" formControlName="str">
+    <input type="text" placeholder="search quote" formControlName="searchInput">
     <button type="submit" [disabled]="!searchForm.valid || isLoading">Send request</button>
   </form>
 </div>
@@ -9,7 +9,7 @@
 
   <div class="quotes-list-wr">
     <p *ngIf="searchListResult">Chuck Norris found:</p>
-    <p *ngIf="fetchError">Error has happened. Nothing found</p>
+    <p *ngIf="fetchError">Nothing found. Try again.</p>
     <div class="quote"
          *ngFor="let item of searchListResult; index as i; trackBy: quoteTrackByFn">
       <p>Joke #{{i + 1}}</p>

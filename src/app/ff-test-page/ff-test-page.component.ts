@@ -23,7 +23,7 @@ export class FfTestPageComponent {
 
   initForm(): void {
     this.searchForm = this.fb.group({
-      str: ['', Validators.required]
+      searchInput: ['', Validators.required]
     });
   }
 
@@ -34,12 +34,18 @@ export class FfTestPageComponent {
   onSubmit(): void {
     this.isLoading = true;
     this.fetchError = false;
-    console.log(this.searchForm.controls.str.value);
-    this.quoteService.searchQuote(this.searchForm.controls.str.value)
-      .pipe(finalize(() => { this.isLoading = false; }))
+
+    this.quoteService.searchQuote(this.searchForm.controls.searchInput.value)
+      .pipe(finalize(() => {
+        this.isLoading = false;
+        this.searchForm.reset();
+      }))
       .subscribe(
         data => this.searchListResult = data.result,
-        error => this.fetchError = error
+        () => {
+          this.fetchError = true;
+          this.searchListResult = null;
+        }
       );
   }
 }
